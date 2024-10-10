@@ -1,0 +1,42 @@
+<!-- src/views/payment/list.hbs -->
+<div class="container mt-4">
+    <h2 class="text-center">Lista de Pagos</h2>
+    <div class="text-center mb-3">
+        <a href="/payment/add" class="btn btn-success">Agregar Pago</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped text-center shadow border">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID de Pedido</th>
+                    <th>Monto</th>
+                    <th>Método de Pago</th>
+                    <th>Estado</th>
+                    <th>Fecha de Creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each payments}}
+                <tr>
+                    <td>{{payment_id}}</td>
+                    <td>{{order_dish_id}}</td>
+                    <td>{{amount}}</td>
+                    <td>{{payment_method}}</td>
+                    <td>{{status}}</td>
+                    <td>{{created_at}}</td>
+                    <td>
+                        <a href="/payment/edit/{{payment_id}}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="/payment/delete/{{payment_id}}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="7">No hay pagos disponibles.</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

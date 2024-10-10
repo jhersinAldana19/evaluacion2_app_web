@@ -1,0 +1,36 @@
+<!-- src/views/payment/edit.hbs -->
+<div class="container mt-4">
+    <h2 class="text-center">Editar Pago</h2>
+    <div class="card shadow p-4 mt-3" style="max-width: 400px; margin: auto;"> <!-- Ajusta el ancho -->
+        <form action="/payment/edit/{{payment.payment_id}}" method="POST">
+            <div class="form-group">
+                <label for="order_dish_id">ID de Pedido:</label>
+                <input type="number" class="form-control" name="order_dish_id" value="{{payment.order_dish_id}}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Monto:</label>
+                <input type="number" class="form-control" name="amount" value="{{payment.amount}}" step="0.01" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="payment_method">Método de Pago:</label>
+                <input type="text" class="form-control" name="payment_method" value="{{payment.payment_method}}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Estado:</label>
+                <input type="text" class="form-control" name="status" value="{{payment.status}}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="created_at">Fecha de Creación:</label>
+                <input type="datetime-local" class="form-control" name="created_at" value="{{payment.created_at}}" required>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+        </form>
+    </div>
+</div>

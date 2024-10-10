@@ -1,0 +1,38 @@
+<!-- src/views/order/list.hbs -->
+<div class="container mt-4">
+    <h2 class="text-center">Lista de Pedidos</h2>
+    <div class="text-center mb-3">
+        <a href="/order/add" class="btn btn-success">Agregar Pedido</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped text-center shadow border">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>URL del Reporte</th>
+                    <th>Estado</th>
+                    <th>ID de Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
+                <tr>
+                    <td>{{order_id}}</td>
+                    <td>{{order_date}}</td>
+                    <td>{{total}}</td>
+                    <td><a href="{{invoice_report_url}}" target="_blank">Ver Reporte</a></td>
+                    <td>{{status}}</td>
+                    <td>{{user_id}}</td>
+                    <td>
+                        <a href="/order/edit/{{order_id}}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="/order/delete/{{order_id}}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

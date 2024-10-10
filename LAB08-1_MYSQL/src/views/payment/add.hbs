@@ -1,0 +1,39 @@
+<!-- src/views/payment/add.hbs -->
+<div class="container mt-4">
+    <h2 class="text-center">Agregar Pago</h2>
+    <div class="card shadow p-4 mt-3" style="max-width: 400px; margin: auto;"> <!-- Ajusta el ancho -->
+        <form action="/payment/add" method="POST">
+            <div class="form-group">
+                <label for="order_dish_id">ID de Pedido:</label>
+                <select name="order_dish_id" class="form-control" required>
+                    {{#each orders}}
+                        <option value="{{order_id}}">{{order_id}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Monto:</label>
+                <input type="number" class="form-control" name="amount" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="payment_method">Método de Pago:</label>
+                <select name="payment_method" class="form-control" required>
+                    <option value="Credit Card">Tarjeta de Crédito</option>
+                    <option value="Cash">Efectivo</option>
+                    <option value="PayPal">PayPal</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Estado:</label>
+                <input type="text" class="form-control" name="status" required>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-success">Agregar Pago</button>
+            </div>
+        </form>
+    </div>
+</div>
